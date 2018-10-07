@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ExplorerSearchActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@drawable/titlebar" >
+
+        <ImageView
+            android:id="@+id/imageView111111"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/button_search" />
+
+        <EditText
+            android:id="@+id/editTextExplorerSearch"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/buttonExplorerSearchSearch"
+            android:layout_toRightOf="@+id/imageView111111"
+            android:ems="10"
+            android:imeOptions="actionSearch"
+            android:inputType="text" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonExplorerSearchSearch"
+            android:layout_width="65dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="9dp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listViewExplorerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>

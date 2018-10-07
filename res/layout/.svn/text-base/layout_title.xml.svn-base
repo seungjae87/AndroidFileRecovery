@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@drawable/titlebar"
+    >
+
+    <TextView
+        android:id="@+id/textViewExplorerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/buttonExplorerTop"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="Title Content"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/buttonExplorerTop"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/buttonExplorerView"
+        android:background="#00FF0000"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_top"
+        android:visibility="invisible" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/buttonExplorerView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/buttonExplorerCheck"
+        android:background="#00FF0000"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible" >
+
+        <!-- android:src="@drawable/button_grid" -->
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/buttonExplorerCheck"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/buttonExplorerSearch"
+        android:background="#00FF0000"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_check"
+        android:visibility="invisible" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/buttonExplorerSearch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:background="#00FF0000"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_search"
+        android:visibility="invisible" >
+    </ImageButton>
+
+</RelativeLayout>

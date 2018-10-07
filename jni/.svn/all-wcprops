@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/androidrecovery/!svn/ver/111/AndroidRecovery/jni
+END
+jnihelp.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/androidrecovery/!svn/ver/57/AndroidRecovery/jni/jnihelp.h
+END
+edu_handong_ghost_ctrlz_nativeclass_NativeDeviceList.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/edu_handong_ghost_ctrlz_nativeclass_NativeDeviceList.h
+END
+edu_handong_ghost_ctrlz_nativeclass_NativeFatRecover.c
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/androidrecovery/!svn/ver/110/AndroidRecovery/jni/edu_handong_ghost_ctrlz_nativeclass_NativeFatRecover.c
+END
+recover_onload.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/recover_onload.c
+END
+jnihelp.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/androidrecovery/!svn/ver/57/AndroidRecovery/jni/jnihelp.c
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/Android.mk
+END
+edu_handong_ghost_ctrlz_nativeclass_NativeDeviceList.c
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/edu_handong_ghost_ctrlz_nativeclass_NativeDeviceList.c
+END

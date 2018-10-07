@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ctrl+Z</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_recovery">RecoveryActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_explorer">ExplorerActivity</string>
+    <string name="title_activity_explorer_grid">ExplorerGridActivity</string>
+    <string name="title_activity_explorer_search">ExplorerSearchActivity</string>
+    <string name="title_activity_explorer_select">ExplorerSelectActivity</string>
+    <string name="title_activity_file_manage">FileManageActivity</string>
+    <string name="title_activity_exploere_manage">ExploereManageActivity</string>
+    <string name="title_activity_extra">ExtraActivity</string>
+    
+    <!-- Activity Titles -->  
+    <string name="title_device">存储器</string>
+    <string name="title_explorer">找文件</string>
+    <string name="title_recovery">文件恢复</string>
+    <string name="title_filemanage">文件管理</string>
+    
+     <!-- Device adapter -->    
+    <string name="device_adapter_filesystem">文件系统</string>
+    <string name="device_adapter_totalsize">总用量</string>
+    
+    <!-- Device information activity -->
+    <string name="device_activity_prgmsg_fetch">带来存储器信息</string>
+    <string name="device_activity_prgmsg_error">带来存储器信息错误了</string>
+    <string name="device_check_root_fail">使用这种应用, 要rooting</string>
+    
+    <!-- Recovery Activity -->
+    <string name="title_spinner">选存储器</string>
+    <string name="recovery_spin_select_device">选存储器 </string>
+    <string name="recovery_scan_path">选择路径</string>
+    <string name="recovery_filter">数据类型 </string>
+    <string name="recovery_search_result">搜索结果</string>
+    <string name="button_scan">探索开始</string>
+    <string name="button_selectAll">全都选</string>
+    <string name="button_deselectAll">全都不选</string>
+    <string name="button_recover">文件恢复</string>
+    <string name="button_delete">删除</string>
+    <string name="button_total_scan">总</string>
+    <string name="button_selective_scan">文件夹</string>
+    <string name="recovery_nodevice">不选</string>
+    <string name="recovery_msg_nonselect">你没选了</string>
+    <string name="recovery_prgmsg_scan">扫描</string>
+    <string name="recovery_msg_noresult">搜索结果没有</string>
+    <string name="recovery_msg_recov_complete">文件恢复完了</string>
+    <string name="recovery_msg_recov_wait"> 等一会儿</string>
+    <string name="recovery_msg_recov_error">产生差错了</string>
+    <string name="recovery_msg_nofile">没有文件</string>
+    <string name="recovery_msg_noread">不能读文件夹了</string>
+    <string name="recovery_explain">长按你要扫描的文件</string>
+    <string name="checkBox_audio">音乐</string>
+    <string name="checkBox_video">视频</string>
+    <string name="checkBox_image">照片</string>
+    <string name="checkBox_doc">文件</string>
+    <string name="checkBox_comp">压缩文件</string>
+    <string name="checkBox_etc">其他</string>
+    
+    <!-- File Explorer activity -->
+    <string name="explorer_dialog_title_changeroot">变更 root</string>
+    <string name="explorer_dialog_btn_cancel">取消</string>
+    <string name="explorer_msg_nofile">没有文件</string>
+    <string name="explorer_msg_noread">不能读文件夹了!</string>
+    <string name="explorer_msg_delete">删除!</string>
+    <string name="explorer_msg_notype">没支援的形式</string>
+    <string name="explorer_btn_ok">OK</string>
+    <string name="explorer_btn_cancel">取消</string>
+    <string name="explorer_dialog_title_changename">化名</string>
+    
+    <!-- File Manage activity -->
+    <string name="filemanager_btn_mv_to_here">移动这儿</string>
+    <string name="filemanager_btn_cp_to_here">复印这儿</string>
+    <string name="filemanager_ed_title_foldername">文件夹的名字</string>
+    <string name="filemanager_btn_ok">OK</string>
+    <string name="filemanager_btn_cancel">取消</string>
+    <string name="filemanager_msg_nofile">没有文件</string>
+    <string name="filemanager_msg_noread">不能带来文件夹!</string>
+    <string name="filemanager_btn_newfolder">加新文件夹</string>
+    <string name="filemanager_item_delete">删除</string>
+    <string name="filemanager_item_move">移动</string>
+    <string name="filemanager_item_copy">复印</string>
+    <string name="filemanager_item_rename">重命名</string>
+    
+    <!-- File Search activity -->
+    <string name="file_search_btn">找</string>
+    <string name="file_search_progress"> 正在找...</string>
+    
+    <!-- App information activity -->
+    
+</resources>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="explorer_dialog">
+        <item>@string/filemanager_item_delete</item>
+        <item>@string/filemanager_item_move</item>
+        <item>@string/filemanager_item_copy</item>
+        <item>@string/filemanager_item_rename</item>
+    </string-array>
+</resources>

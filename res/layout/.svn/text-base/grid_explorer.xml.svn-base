@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="50dp"
+    android:layout_height="90dp"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imageViewFileImage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/icon_folder" />
+
+    <TextView
+        android:id="@+id/textViewFileName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ellipsize="end"
+        android:gravity="top|center"
+        android:maxLines="2"
+        android:text="SdcardIsGoneHiHello"
+        android:textSize="13sp" />
+
+</LinearLayout>

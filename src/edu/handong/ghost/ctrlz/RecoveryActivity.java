@@ -1,0 +1,489 @@
+package edu.handong.ghost.ctrlz;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import edu.handong.ghost.ctrlz.manager.LayoutManager;
+import edu.handong.ghost.ctrlz.model.RecoveryFileAdapter;
+import edu.handong.ghost.ctrlz.recovery.FilteringManager;
+import edu.handong.ghost.ctrlz.recovery.RecoveryManager;
+import edu.handong.ghost.ctrlz.recovery.obj.Device;
+import edu.handong.ghost.ctrlz.recovery.obj.RecoverFile;
+
+/**
+ * @FileName: RecoveryActivity.java
+ * @Date	: Dec 31, 2012 
+ * @작성자	: 임의상 
+ * @변경이력	:
+ * @수정자	: 
+ * @설명		: 
+ */
+public class RecoveryActivity extends Activity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
+
+	// 타이틀바 
+	private TextView textViewCurrentPath;
+	private ArrayList<Device> devices;
+	private ArrayList<RecoverFile> flist;
+	private RecoveryFileAdapter listAdapter;
+	private RecoveryManager rmgr;
+	private TextView recoveryScanPath;
+	private ListView listRecoveryFile;
+	private Button selectAllBtn;
+	private Button recoverBtn;
+	//private Button deleteBtn;
+	private Button changePathBtn;
+	private Button scanBtn;
+
+	private LinearLayout linearLayout2;
+	private LinearLayout linearLayout3;
+	private LinearLayout linearLayout4;
+
+	private CheckBox audioCheckBox;
+	private CheckBox videoCheckBox;;
+	private CheckBox imageCheckBox;;
+	private CheckBox docCheckBox;;
+	private CheckBox compCheckBox;;
+	private CheckBox etcCheckBox;;
+
+	boolean[] filterFlags;
+
+	private LayoutManager layoutManager = LayoutManager.getInstance();	// file manager
+
+	private int pathCount;
+	private String pathStore;
+
+	private ProgressDialog mProgress;
+	private ProgressDialog dialog;
+
+	private static final int REQ = 1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_recovery);
+
+		layoutManager.setCurrentActivity(this);
+		layoutManager.setTabMenu();
+
+		// 타이틀바 제목
+		textViewCurrentPath = (TextView)findViewById(R.id.textViewExplorerTitle);
+		textViewCurrentPath.setText(R.string.title_recovery);
+
+		try {
+			devices = RecoveryManager.getDeviceList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		linearLayout2 = (LinearLayout)findViewById(R.id.recoveryActivityLinear2);
+		linearLayout3 = (LinearLayout)findViewById(R.id.recoveryActivityLinear3);
+		linearLayout4 = (LinearLayout)findViewById(R.id.recoveryActivityLinear4);
+
+		linearLayout2.setVisibility(View.INVISIBLE);
+		linearLayout3.setVisibility(View.INVISIBLE);
+		linearLayout4.setVisibility(View.INVISIBLE);
+
+		recoveryScanPath = (TextView)findViewById(R.id.recoveryScanPath);
+		recoveryScanPath.setText(layoutManager.getRootPath());
+
+		listRecoveryFile = (ListView)findViewById(R.id.listViewRecovery);
+		listRecoveryFile.setFastScrollEnabled(true);
+
+		Spinner spin = (Spinner)findViewById(R.id.spinner);
+		spin.setPromptId(R.string.recovery_spin_select_device);
+		spin.setOnItemSelectedListener(this);
+
+		ArrayList<String> temp_device_path = new ArrayList<String>();
+		temp_device_path.add(getResources().getString(R.string.recovery_nodevice));
+
+		for(int i=0; i<devices.size(); i++)
+			temp_device_path.add(devices.get(i).getMountDir());
+
+		ArrayAdapter<String> device_path = 
+				new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, temp_device_path);
+		device_path.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spin.setAdapter(device_path);
+
+
+		selectAllBtn = (Button)findViewById(R.id.selectAllBtn);
+		recoverBtn = (Button)findViewById(R.id.recoverBtn);
+		//deleteBtn = (Button)findViewById(R.id.deleteBtn);
+		changePathBtn = (Button)findViewById(R.id.changePathBtn);
+		scanBtn = (Button)findViewById(R.id.scanBtn);
+
+		selectAllBtn.setOnClickListener(this);
+		recoverBtn.setOnClickListener(this);
+		//deleteBtn.setOnClickListener(this);
+		changePathBtn.setOnClickListener(this);
+		scanBtn.setOnClickListener(this);
+
+		scanBtn.setVisibility(View.INVISIBLE);
+
+		audioCheckBox = (CheckBox)findViewById(R.id.audioCheckBox);
+		videoCheckBox = (CheckBox)findViewById(R.id.videoCheckBox);
+		imageCheckBox = (CheckBox)findViewById(R.id.imageCheckBox);
+		docCheckBox = (CheckBox)findViewById(R.id.docCheckBox);
+		compCheckBox = (CheckBox)findViewById(R.id.compressCheckBox);
+		etcCheckBox = (CheckBox)findViewById(R.id.etcCheckBox);
+
+		mProgress = new ProgressDialog(RecoveryActivity.this);
+
+	}
+
+
+	public void onClick(View v) {
+
+		// change path button
+		if(v.getId() == R.id.changePathBtn){
+			pathStore = (String)recoveryScanPath.getText();
+			Intent intent = new Intent(RecoveryActivity.this, RecoveryFolderSearchActivity.class);
+			startActivityForResult(intent, REQ);
+		}
+
+		else if(v.getId() == R.id.scanBtn){
+			String tempScanPath = (String)recoveryScanPath.getText();
+			String scanPath = tempScanPath.substring(rmgr.getDevice().getMountDir().length()) + "/";
+			int count=0;
+
+			// setting flags
+			filterFlags[FilteringManager.AUDIO] = audioCheckBox.isChecked();
+			filterFlags[FilteringManager.VIDEO] = videoCheckBox.isChecked();
+			filterFlags[FilteringManager.IMAGE] = imageCheckBox.isChecked();
+			filterFlags[FilteringManager.DOC] = docCheckBox.isChecked();
+			filterFlags[FilteringManager.COMPRESS] = compCheckBox.isChecked();
+			filterFlags[FilteringManager.OTHERS] = etcCheckBox.isChecked();
+			rmgr.setCategoryFlags(filterFlags);
+
+			for(int i=0; i<filterFlags.length; i++){
+				if(filterFlags[i] == true)
+					count++;
+			}
+
+			if(count != 0){
+				try {
+					pathCount = rmgr.getPathCount(scanPath);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// scan
+				new RecoverListScan().execute(scanPath);
+			}
+			else
+				Toast.makeText(RecoveryActivity.this, getResources().getString(R.string.recovery_msg_nonselect), Toast.LENGTH_SHORT).show();
+
+		}
+
+		else if(v.getId() == R.id.selectAllBtn){
+			if(listAdapter != null){
+				listAdapter.toggleAllCheckBox();
+				listAdapter.notifyDataSetChanged();
+				if(listAdapter.getCheckedAll() == true){
+					selectAllBtn.setText(getResources().getString(R.string.button_deselectAll));
+					selectAllBtn.setTextSize(11);
+				}
+				else{
+					selectAllBtn.setText(getResources().getString(R.string.button_selectAll));
+					selectAllBtn.setTextSize(13);
+				}
+			}
+		}
+
+		// 복구 or 삭제
+		else if(v.getId() == R.id.recoverBtn){// || v.getId() == R.id.deleteBtn){
+			ArrayList<RecoverFile> temp = new ArrayList<RecoverFile>();
+			boolean[] tempChecked = listAdapter.getIsChecked();
+			for(int i=0; i<flist.size(); i++){
+				if(tempChecked[i] == true)
+					temp.add(flist.get(i));
+			}
+
+			if(temp.size() == 0)	// temp에 file이 없는 경우. 즉, 어떤 file도 선택하지 않고 recover버튼을 누른 경우
+				Toast.makeText(RecoveryActivity.this, getResources().getString(R.string.recovery_msg_nonselect), Toast.LENGTH_SHORT).show();
+			else{
+				if(v.getId() == R.id.recoverBtn){
+					new RecoverFiles().execute(temp);
+					Intent intent = new Intent(RecoveryActivity.this, ExplorerActivity.class);
+					intent.putExtra("intentPath", rmgr.getDevice().getRecoveryDir());
+					startActivity(intent);
+					finish();
+				}
+				/*
+				else if(v.getId() == R.id.deleteBtn){
+
+					for(int i=0; i<temp.size(); i++){
+						try {
+							rmgr.deleteFile(temp.get(i));
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				 */
+			}
+		}		
+	}
+
+	public void onItemSelected(AdapterView<?> parent, View v, int position, long id){
+
+		if(position == 0){	// None을 선택했을 경우
+			linearLayout2.setVisibility(View.INVISIBLE);
+			linearLayout3.setVisibility(View.INVISIBLE);
+			linearLayout4.setVisibility(View.INVISIBLE);
+			listRecoveryFile.setVisibility(View.INVISIBLE);
+		}
+		else{	// sd card를 선택했을 경우
+			rmgr = RecoveryManager.getInstance(devices.get(position-1));
+
+			filterFlags = rmgr.getCategoryFlags();
+			filterFlags[FilteringManager.AUDIO] = true;
+			filterFlags[FilteringManager.VIDEO] = true;
+			filterFlags[FilteringManager.IMAGE] = true;
+			filterFlags[FilteringManager.DOC] = true;
+			filterFlags[FilteringManager.COMPRESS] = true;
+			filterFlags[FilteringManager.OTHERS] = true;
+			rmgr.setCategoryFlags(filterFlags);
+
+			audioCheckBox.setChecked(true);
+			videoCheckBox.setChecked(true);
+			imageCheckBox.setChecked(true);
+			docCheckBox.setChecked(true);
+			compCheckBox.setChecked(true);
+			etcCheckBox.setChecked(true);
+
+			recoveryScanPath.setText(devices.get(position-1).getMountDir());
+
+			linearLayout2.setVisibility(View.VISIBLE);
+			scanBtn.setVisibility(View.VISIBLE);
+
+			// rooting
+			try{
+				int lastindex = 0;
+				String[] permission_cmd = new String[] {"su", "-c", " "};
+				lastindex = rmgr.getDevice().getDevPath().lastIndexOf("/");
+				for(int i=1; i<lastindex; ){
+					i = rmgr.getDevice().getDevPath().indexOf("/", i+1);
+				//	Log.e("Ctrlz", "i = " + i);
+					permission_cmd[2] = "chmod 755 " + rmgr.getDevice().getDevPath().substring(0, i);					
+					Runtime.getRuntime().exec(permission_cmd).waitFor();
+				//	Log.e("Ctrlz", permission_cmd[0]+permission_cmd[1]+permission_cmd[2]);
+				}
+				permission_cmd[2] = "chmod 664 " + rmgr.getDevice().getDevPath();
+				Runtime.getRuntime().exec(permission_cmd).waitFor();
+			//	Log.e("Ctrlz", permission_cmd[0]+permission_cmd[1]+permission_cmd[2]);
+			}catch(Exception e){ // not rooted
+				new AlertDialog.Builder(RecoveryActivity.this)
+				.setMessage(getResources().getString(R.string.device_check_root_fail))
+				.setPositiveButton(getResources().getString(R.string.explorer_btn_ok), 
+						new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						//  TODO Auto-generated method stub
+						finish();
+					}
+				}).show();
+			}
+		}
+	}
+
+	public void onNothingSelected(AdapterView<?> parent){
+
+	}
+
+	// background 작업
+	public class RecoverListScan extends AsyncTask<String, Object, Integer> {     
+
+		ArrayAdapter<String> arrayAdapter;
+		int fileCounter;
+
+		//doInBackground(Params...) 메소드 실행 전 호출
+		//UI Thread
+
+		@Override
+		protected void onPreExecute() {
+
+			// 화면 꺼짐 방지
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+			linearLayout2.setVisibility(View.INVISIBLE);
+			scanBtn.setVisibility(View.INVISIBLE);
+
+			mProgress = new ProgressDialog(RecoveryActivity.this);
+			mProgress.setTitle(getResources().getString(R.string.recovery_prgmsg_scan));
+			mProgress.setMessage(" ");
+			mProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			mProgress.setMax(pathCount);
+			mProgress.setProgress(0);			
+			mProgress.show();
+
+		}
+
+		//BackGround Thread
+		@Override
+		protected Integer doInBackground(String... arg) {
+
+			try {				
+				flist = rmgr.scanPath(RecoverListScan.this, arg[0]);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+
+			fileCounter = flist.size();
+
+			if(flist.size() == 0){
+				ArrayList<String> list = new ArrayList<String>();
+				list.add(getResources().getString(R.string.recovery_msg_noresult));
+				arrayAdapter = new ArrayAdapter<String>(RecoveryActivity.this, android.R.layout.simple_list_item_1, list);				
+			}
+			else{
+				listAdapter = new RecoveryFileAdapter(RecoveryActivity.this, R.layout.list_recovery, flist);
+				listRecoveryFile.setItemsCanFocus(false);
+				listRecoveryFile.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);				
+			}
+			return null;
+		}
+
+		//publishProgress(Progress...) 메소드로 호출 됨.
+		//UI Thread
+		@Override
+		protected void onProgressUpdate(Object... values) {
+			mProgress.setProgress((Integer)values[0]);
+			String temp = (String)values[1];
+			if(temp.length()<29)
+				mProgress.setMessage(temp);
+			else
+				mProgress.setMessage(temp.substring(0, 16) + "..." + temp.substring(temp.length()-8, temp.length()));
+		}
+
+		//doInBackground(Params...) 메소드의 리턴 값 처리
+		//UI Thread
+		@Override
+		protected void onPostExecute(Integer result) {
+			mProgress.dismiss();
+			showDialog(0);
+			try {
+				rmgr.genThumnails(flist);
+			} catch (Exception e) {
+				showDialog(1);
+			}
+			removeDialog(0);
+			if(fileCounter == 0)
+				listRecoveryFile.setAdapter(arrayAdapter);
+			else{
+				listRecoveryFile.setAdapter(listAdapter);
+				listRecoveryFile.setOnItemClickListener(mClickListener);
+			}
+
+			linearLayout3.setVisibility(View.VISIBLE);
+			linearLayout4.setVisibility(View.VISIBLE);
+			listRecoveryFile.setVisibility(View.VISIBLE);
+
+			// 화면 꺼짐 방지 해제
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		}     
+
+		//cancel(boolean) 호출 시 또는 doInBackground(Object[]) 완료 후 처리.
+		//UI Thread
+		@Override
+		protected void onCancelled() {
+			mProgress.dismiss();
+			// 화면 꺼짐 방지 해제
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		}
+	}
+
+	private AdapterView.OnItemClickListener mClickListener = new 
+			AdapterView.OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1,
+				int position, long arg3) {
+			listAdapter.toggleCheckBox(position);
+			listAdapter.notifyDataSetChanged();
+		}
+	};
+
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		switch(requestCode){
+		case REQ:
+			if(resultCode == RESULT_OK){
+				String tempPath = data.getStringExtra("path");
+				recoveryScanPath.setText(tempPath);
+			}
+			else if(resultCode == RESULT_CANCELED){
+				recoveryScanPath.setText(pathStore);
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	private class RecoverFiles extends AsyncTask<ArrayList, Void, Void>{
+		protected void onPreExecute(){
+			showDialog(0);
+		}
+
+		@Override
+		protected Void doInBackground(ArrayList... params) {
+			try{
+				rmgr.recoverFile(params[0]);
+			}
+			catch(Exception e){
+				showDialog(1);
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void arg0){
+			removeDialog(0);
+			Toast.makeText(RecoveryActivity.this, 
+					getResources().getString(R.string.recovery_msg_recov_complete), 
+					Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch(id){
+		case 0:
+			dialog = new ProgressDialog(RecoveryActivity.this);
+			dialog.setMessage(getResources().getString(R.string.recovery_msg_recov_wait));
+			dialog.setIndeterminate(true);
+			return dialog;
+		case 1:
+			//dialog = new ProgressDialog(this);
+			dialog.setMessage(getResources().getString(R.string.recovery_msg_recov_error));
+			dialog.setIndeterminate(true);
+			return dialog;
+		default:
+			return null;
+		}
+	}
+
+
+
+}
+
+

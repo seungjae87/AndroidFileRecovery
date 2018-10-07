@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="35dp" >
+
+    <ImageView
+        android:id="@+id/possibilityImage"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/icon_possibility_high" />
+
+    <ImageView
+        android:id="@+id/listRecoveryImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/possibilityImage"
+        android:src="@drawable/icon_folder" />
+
+    <CheckBox
+        android:id="@+id/recoveryCheckBox"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/listRecoveryFileName"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/recoveryCheckBox"
+        android:layout_toRightOf="@+id/listRecoveryImage"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="file name"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/listRecoveryFileSize"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/listRecoveryFileName"
+        android:layout_below="@+id/listRecoveryFileName"
+        android:layout_toLeftOf="@+id/recoveryCheckBox"
+        android:layout_toRightOf="@+id/listRecoveryImage"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="file size"
+        android:textColor="#999999"
+        android:textSize="12sp" />
+
+</RelativeLayout>

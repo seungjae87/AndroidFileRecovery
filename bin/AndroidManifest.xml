@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.handong.ghost.ctrlz"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ctrlz"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="edu.handong.ghost.ctrlz.IntroActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.handong.ghost.ctrlz.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.InformationActivity"
+            android:label="@string/title_activity_information"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.RecoveryActivity"
+            android:label="@string/title_activity_recovery"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExplorerActivity"
+            android:label="@string/title_activity_explorer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExplorerGridActivity"
+            android:label="@string/title_activity_explorer_grid"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExplorerSearchActivity"
+            android:label="@string/title_activity_explorer_search"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExplorerSelectActivity"
+            android:label="@string/title_activity_explorer_select"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.FileManageActivity"
+            android:label="@string/title_activity_file_manage" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExploereManageActivity"
+            android:label="@string/title_activity_exploere_manage" />
+        <!-- created by Administrator at 2013-02-06 16:44:29 -->
+        <activity android:name="edu.handong.ghost.ctrlz.RecoveryFolderSearchActivity" />
+        <activity
+            android:name="edu.handong.ghost.ctrlz.ExtraActivity"
+            android:label="@string/title_activity_extra"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

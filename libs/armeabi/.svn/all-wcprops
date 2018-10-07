@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/androidrecovery/!svn/ver/111/AndroidRecovery/libs/armeabi
+END
+libgetdevice.so
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/androidrecovery/!svn/ver/81/AndroidRecovery/libs/armeabi/libgetdevice.so
+END
+librecover.so
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/androidrecovery/!svn/ver/81/AndroidRecovery/libs/armeabi/librecover.so
+END

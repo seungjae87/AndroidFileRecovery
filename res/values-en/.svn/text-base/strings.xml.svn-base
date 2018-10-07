@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ctrl+Z</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_recovery">RecoveryActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_explorer">ExplorerActivity</string>
+    <string name="title_activity_explorer_grid">ExplorerGridActivity</string>
+    <string name="title_activity_explorer_search">ExplorerSearchActivity</string>
+    <string name="title_activity_explorer_select">ExplorerSelectActivity</string>
+    <string name="title_activity_file_manage">FileManageActivity</string>
+    <string name="title_activity_exploere_manage">ExploereManageActivity</string>
+    <string name="title_activity_extra">ExtraActivity</string>
+    
+    <!-- Activity Titles -->  
+    <string name="title_device">Storage devices</string>
+    <string name="title_explorer">File Explorer</string>
+    <string name="title_recovery">File Recovery</string>
+    <string name="title_filemanage">File Management</string>
+    
+     <!-- Device adapter -->    
+    <string name="device_adapter_filesystem">file system</string>
+    <string name="device_adapter_totalsize">total size</string>
+    
+    <!-- Device information activity -->
+    <string name="device_activity_prgmsg_fetch">Fetching devices information</string>
+    <string name="device_activity_prgmsg_error">Error fetching devices</string>
+    <string name="device_check_root_fail">To use this application, rooting is required</string>
+    
+    <!-- Recovery Activity -->
+    <string name="title_spinner">Select device</string>
+    <string name="recovery_spin_select_device">Select device</string>
+    <string name="recovery_scan_path">Select a location</string>
+    <string name="recovery_filter">File Type</string>
+    <string name="recovery_search_result">Search results</string>
+    <string name="button_scan">Start scan</string>
+    <string name="button_selectAll">Select All</string>
+    <string name="button_deselectAll">Deselect All</string>
+    <string name="button_recover">Recover</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_total_scan">Total</string>
+    <string name="button_selective_scan">Folder</string>
+    <string name="recovery_nodevice">None</string>
+    <string name="recovery_msg_nonselect">None selected</string>
+    <string name="recovery_prgmsg_scan">Scanning</string>
+    <string name="recovery_msg_noresult">No result</string>
+    <string name="recovery_msg_recov_complete">Complete</string>
+    <string name="recovery_msg_recov_wait">Please wait for recovering</string>
+    <string name="recovery_msg_recov_error">Error occurred</string>
+    <string name="recovery_msg_nofile">No file</string>
+    <string name="recovery_msg_noread">folder can\'t be read!</string>
+    <string name="recovery_explain">Press and hold an item you want to scan</string>
+    <string name="checkBox_audio">Audio</string>
+    <string name="checkBox_video">Video</string>
+    <string name="checkBox_image">Image</string>
+    <string name="checkBox_doc">Document</string>
+    <string name="checkBox_comp">Compress</string>
+    <string name="checkBox_etc">etc</string>
+    
+    <!-- File Explorer activity -->
+    <string name="explorer_dialog_title_changeroot">Change root</string>
+    <string name="explorer_dialog_btn_cancel">Cancel</string>
+    <string name="explorer_msg_nofile">No file</string>
+    <string name="explorer_msg_noread">folder can\'t be read!</string>
+    <string name="explorer_msg_delete">will be deleted!</string>
+    <string name="explorer_msg_notype">Not supported type</string>
+    <string name="explorer_btn_ok">OK</string>
+    <string name="explorer_btn_cancel">Cancel</string>
+    <string name="explorer_dialog_title_changename">Change name</string>
+    
+    <!-- File Manage activity -->
+    <string name="filemanager_btn_mv_to_here">Move to here</string>
+    <string name="filemanager_btn_cp_to_here">Copy to here</string>
+    <string name="filemanager_ed_title_foldername">Folder name</string>
+    <string name="filemanager_btn_ok">OK</string>
+    <string name="filemanager_btn_cancel">Cancel</string>
+    <string name="filemanager_msg_nofile">No file</string>
+    <string name="filemanager_msg_noread">folder can\'t be read!</string>
+    <string name="filemanager_btn_newfolder">Add a new folder</string>
+    <string name="filemanager_item_delete">Delete</string>
+    <string name="filemanager_item_move">Move</string>
+    <string name="filemanager_item_copy">Copy</string>
+    <string name="filemanager_item_rename">Rename</string>
+    
+    <!-- File Search activity -->
+    <string name="file_search_btn">Search</string>
+    <string name="file_search_progress">Searching ...</string>
+    
+    <!-- App information activity -->
+    
+</resources>

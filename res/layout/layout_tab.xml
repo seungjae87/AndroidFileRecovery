@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/tabButton01"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:adjustViewBounds="false"
+        android:background="@drawable/tab_button"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tab_phone" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/tabButton02"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/tab_button"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tab_recovery" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/tabButton03"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/tab_button"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tab_browser" >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/tabButton04"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/tab_button"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tab_info" >
+    </ImageButton>
+
+</LinearLayout>

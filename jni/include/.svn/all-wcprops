@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/androidrecovery/!svn/ver/111/AndroidRecovery/jni/include
+END
+fat_dir.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/androidrecovery/!svn/ver/111/AndroidRecovery/jni/include/fat_dir.h
+END
+fat.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/include/fat.h
+END
+fat_bootsec.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/include/fat_bootsec.h
+END
+fat_dscan.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/androidrecovery/!svn/ver/50/AndroidRecovery/jni/include/fat_dscan.h
+END
+fat_recover.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/androidrecovery/!svn/ver/91/AndroidRecovery/jni/include/fat_recover.h
+END
+get_device.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/androidrecovery/!svn/ver/45/AndroidRecovery/jni/include/get_device.h
+END
+fat_delete.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/androidrecovery/!svn/ver/47/AndroidRecovery/jni/include/fat_delete.h
+END
+fat_cluster.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/androidrecovery/!svn/ver/91/AndroidRecovery/jni/include/fat_cluster.h
+END

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/common
+END
+_errno.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/androidrecovery/!svn/ver/42/AndroidRecovery/jni/common/_errno.h
+END
+extio.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/extio.h
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/time.c
+END
+suvreq.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/suvreq.h
+END
+macrostr.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/macrostr.txt
+END
+defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/androidrecovery/!svn/ver/73/AndroidRecovery/jni/common/defs.h
+END
+syserr.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/syserr.c
+END
+macrostr_custom.incl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/macrostr_custom.incl
+END
+syserr.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/syserr.h
+END
+ec.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/ec.c
+END
+options.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/options.c
+END
+macrostr.incl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/macrostr.incl
+END
+options.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/options.h
+END
+ec.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/ec.h
+END
+macrostr.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/macrostr.c
+END
+_errno.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/_errno.c
+END
+pthreadstub.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/pthreadstub.c
+END
+macrostr.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/androidrecovery/!svn/ver/40/AndroidRecovery/jni/common/macrostr.h
+END

@@ -1,0 +1,239 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecoveryActivity" >
+
+    <edu.handong.ghost.ctrlz.layout.TitleBar
+        android:id="@+id/explorerTitleBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+    </edu.handong.ghost.ctrlz.layout.TitleBar>
+
+    <LinearLayout
+        android:id="@+id/recoveryActivityLinear1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/explorerTitleBar"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/spinnerTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/title_spinner"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawSelectorOnTop="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recoveryActivityLinear2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/recoveryActivityLinear1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/recoveryScanPathTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/recovery_scan_path"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/recoveryActivityRelative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/changePathBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="10dp" 
+                android:background="@drawable/icon_path_change"/>
+
+            <TextView
+                android:id="@+id/recoveryScanPath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/changePathBtn"
+                android:singleLine="true"
+                android:text="/" />
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/filteringTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="20dp"
+            android:text="@string/recovery_filter"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/recoveryActivityTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/audioCheckBox"
+                    android:text="@string/checkBox_audio" />
+
+                <CheckBox
+                    android:id="@+id/videoCheckBox"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/checkBox_video" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/imageCheckBox"
+                    android:text="@string/checkBox_image" />
+
+                <CheckBox
+                    android:id="@+id/docCheckBox"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/checkBox_doc" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/compressCheckBox"
+                    android:text="@string/checkBox_comp" />
+
+                <CheckBox
+                    android:id="@+id/etcCheckBox"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/checkBox_etc" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recoveryActivityLinear3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/recoveryActivityLinear1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/recoveryListTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/recovery_search_result"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewRecovery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/recoveryActivityLinear4"
+        android:layout_below="@+id/recoveryActivityLinear3"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/recoveryActivityLinear4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/explorerTabMenu"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp" >
+
+        <Button
+            android:id="@+id/selectAllBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_selectAll"
+            android:textSize="13sp" 
+            android:layout_margin="2dp"/>
+
+        <Button
+            android:id="@+id/recoverBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_recover"
+            android:textSize="13sp" 
+            android:layout_margin="2dp"/>
+        <!--
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_delete"
+            android:textSize="13sp" />
+        -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recoveryActivityLinear5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/explorerTabMenu"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp" >
+
+        <Button
+            android:id="@+id/scanBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_scan"
+            android:textSize="13sp" 
+            android:layout_margin="2dp"/>
+    </LinearLayout>
+
+    <edu.handong.ghost.ctrlz.layout.TabMenu
+        android:id="@+id/explorerTabMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </edu.handong.ghost.ctrlz.layout.TabMenu>
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp" >
+
+    <ImageView
+        android:id="@+id/imageViewFileImage"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/icon_folder" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutExplorer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@+id/buttonExplorerOption"
+        android:layout_toRightOf="@+id/imageViewFileImage"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewFileName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:singleLine="true"
+            android:text="sdcard"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewFileInfo"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:singleLine="true"
+            android:text="50파일, 13.01.04.금 16:40"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/buttonExplorerOption"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="#00FF0000"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_option" >
+    </ImageButton>
+>
+
+</RelativeLayout>

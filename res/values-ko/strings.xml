@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ctrl+Z</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_information">InformationActivity</string>
+    <string name="title_activity_recovery">RecoveryActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_explorer">ExplorerActivity</string>
+    <string name="title_activity_explorer_grid">ExplorerGridActivity</string>
+    <string name="title_activity_explorer_search">ExplorerSearchActivity</string>
+    <string name="title_activity_explorer_select">ExplorerSelectActivity</string>
+    <string name="title_activity_file_manage">FileManageActivity</string>
+    <string name="title_activity_exploere_manage">ExploereManageActivity</string>
+    <string name="title_activity_extra">ExtraActivity</string>
+    
+    <!-- Activity Titles -->    
+    <string name="title_device">저장 장치</string>
+    <string name="title_explorer">파일 탐색</string>
+    <string name="title_recovery">파일 복구</string>
+    <string name="title_filemanage">파일 관리</string>
+    
+    <!-- Device adapter -->
+    <string name="device_adapter_filesystem">파일 시스템</string>
+    <string name="device_adapter_totalsize">전체 크기</string>
+    
+    <!-- Device information activity -->
+    <string name="device_activity_prgmsg_fetch">장치정보를 가져오는 중입니다</string>
+    <string name="device_activity_prgmsg_error">장치정보를 가져오는데 문제가 발생했습니다.</string>
+    <string name="device_check_root_fail">애플리케이션 이용하기 위해선 루팅이 필요합니다</string>
+    
+    <!-- Recovery Activity -->
+    <string name="title_spinner">장치 선택</string>
+    <string name="recovery_spin_select_device">복구할 장치를 선택하세요</string>
+    <string name="recovery_scan_path">탐색 위치 선택</string>
+    <string name="recovery_filter">파일 타입</string>
+    <string name="recovery_search_result">검색 결과</string>
+    <string name="button_scan">탐색 시작</string>
+    <string name="button_selectAll">모두 선택</string>
+    <string name="button_deselectAll">모두 해제</string>
+    <string name="button_recover">복구</string>
+    <string name="button_delete">완전삭제</string>
+    <string name="button_total_scan">전체</string>
+    <string name="button_selective_scan">특정 위치</string>
+    <string name="recovery_nodevice">미선택</string>
+    <string name="recovery_msg_nonselect">아무것도 선택되지 않았습니다</string>
+    <string name="recovery_prgmsg_scan">스캔중</string>
+    <string name="recovery_msg_noresult">스캔 결과가 없습니다.</string>
+    <string name="recovery_msg_recov_complete">복구 완료</string>
+    <string name="recovery_msg_recov_wait">복구 하는 중입니다.</string>
+    <string name="recovery_msg_recov_error">복구 에러</string>
+    <string name="recovery_msg_nofile">파일이 없습니다</string>
+    <string name="recovery_msg_noread">폴더를 읽을 수 없습니다.</string>
+    <string name="recovery_explain">탐색하고자 하는 항목을 길게 누르세요</string>
+    <string name="checkBox_audio">음악</string>
+    <string name="checkBox_video">영상</string>
+    <string name="checkBox_image">이미지</string>
+    <string name="checkBox_doc">문서</string>
+    <string name="checkBox_comp">압축파일</string>
+    <string name="checkBox_etc">기타</string>
+    
+    <!-- File Explorer activity -->
+    <string name="explorer_dialog_title_changeroot">루트 변경</string>
+    <string name="explorer_dialog_btn_cancel">취소</string>
+    <string name="explorer_msg_nofile">파일이 없습니다.</string>
+    <string name="explorer_msg_noread">폴더를 읽을 수 없습니다.</string>
+    <string name="explorer_msg_delete">가 삭제됩니다.</string>
+    <string name="explorer_msg_notype">지원하지 않는 형식입니다.</string>
+    <string name="explorer_btn_ok">확인</string>
+    <string name="explorer_btn_cancel">취소</string>
+    <string name="explorer_dialog_title_changename">이름변경</string>
+    
+    <!-- File Manage activity -->
+    <string name="filemanager_btn_mv_to_here">여기로 이동</string>
+    <string name="filemanager_btn_cp_to_here">여기로 복사</string>
+    <string name="filemanager_ed_title_foldername">폴더 이름</string>
+    <string name="filemanager_btn_ok">확인</string>
+    <string name="filemanager_btn_cancel">취소</string>
+    <string name="filemanager_msg_nofile">파일이 없습니다</string>
+    <string name="filemanager_msg_noread">폴더를 읽을 수 없습니다.</string>
+    <string name="filemanager_btn_newfolder">새로운 폴더 추가</string>
+    <string name="filemanager_item_delete">삭제</string>
+    <string name="filemanager_item_move">이동</string>
+    <string name="filemanager_item_copy">복사</string>
+    <string name="filemanager_item_rename">이름변경</string>
+    
+    <!-- File Search activity -->
+    <string name="file_search_btn">검색</string>
+    <string name="file_search_progress">검색중 ...</string>
+    
+    <!-- App information activity -->
+
+</resources>

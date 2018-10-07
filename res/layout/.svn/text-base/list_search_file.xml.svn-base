@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp" >
+
+    <ImageView
+        android:id="@+id/imageViewSearchedFileImage"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/icon_folder" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSearchedFile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/imageViewSearchedFileImage"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewSearchedFileName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:singleLine="true"
+            android:text="sdcard"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewSearchedFilePath"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:singleLine="true"
+            android:textColor="#999999"
+            android:textSize="12sp" />
+    </LinearLayout>
+>
+
+</RelativeLayout>

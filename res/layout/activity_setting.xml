@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity" >
+
+    <edu.handong.ghost.ctrlz.layout.TitleBar
+        android:id="@+id/explorerTitleBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+    </edu.handong.ghost.ctrlz.layout.TitleBar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/explorerTabMenu"
+        android:layout_below="@+id/explorerTitleBar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Setting" />
+    </RelativeLayout>
+
+    <edu.handong.ghost.ctrlz.layout.TabMenu
+        android:id="@+id/explorerTabMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </edu.handong.ghost.ctrlz.layout.TabMenu>
+
+</RelativeLayout>
